@@ -27,7 +27,7 @@ namespace ModManager
             {
                 return _pack ?? ( _pack =
                            LoadedModManager.RunningModsListForReading.Find( mcp => Mod.SamePackageId( mcp.PackageId ) ) ??
-                           new ModContentPack( Mod.RootDir, Mod.PackageId, Mod.PackageIdPlayerFacing, int.MaxValue, Mod.Name ) );
+                           new ModContentPack( Mod.RootDir, Mod.PackageId, Mod.PackageIdPlayerFacing, int.MaxValue, Mod.Name, false ) );
             }
         }
         private const string ManifestFileName = "Manifest.xml";

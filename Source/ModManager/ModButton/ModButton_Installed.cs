@@ -58,7 +58,7 @@ namespace ModManager
         {
             if ( base.MatchesFilter( filter ) > 0 )
                 return 1;
-            if ( Selected.Author.ToUpperInvariant().Contains( filter.ToUpperInvariant() ) )
+            if ( Selected.AuthorsString.ToUpperInvariant().Contains( filter.ToUpperInvariant() ) )
                 return 2;
             // too many false positives.
             //if ( Selected.Description.ToUpperInvariant().Contains( filter.ToUpperInvariant() ) )
@@ -187,7 +187,7 @@ namespace ModManager
             Text.Anchor = TextAnchor.UpperLeft;
             Text.Font = GameFont.Tiny;
             GUI.color = Color.grey;
-            Widgets.Label(authorRect, Selected.Author);
+            Widgets.Label(authorRect, Selected.AuthorsString);
             GUI.color = Color.white;
             DoSourceButtons(sourceIconsRect);
 
@@ -487,14 +487,14 @@ namespace ModManager
                 ActionButton( titleRect, () => FloatMenu( TitleLinkOptions ) );
 
             // author
-            if (!mod.Author.NullOrEmpty())
+            if (!mod.AuthorsString.NullOrEmpty())
             {
                 labelRect = new Rect(authorRect) { width = labelWidth };
                 GUI.color = Color.grey;
                 Widgets.Label(labelRect, I18n.Author);
                 GUI.color = Color.white;
                 authorRect.xMin += labelWidth + SmallMargin;
-                Widgets.Label(authorRect, mod.Author.Truncate(authorRect.width));
+                Widgets.Label(authorRect, mod.AuthorsString.Truncate(authorRect.width));
                 ModMetaData steamMod;
                 switch ( mod.Source )
                 {

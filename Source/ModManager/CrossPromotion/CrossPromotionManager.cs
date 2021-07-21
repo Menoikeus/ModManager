@@ -176,7 +176,7 @@ namespace ModManager
             {
                 Utilities.OpenSettingsFor( ModManager.Instance );
             }
-            Utilities.DoLabel( ref canvas, I18n.PromotionsFor( mod.Author ) );
+            Utilities.DoLabel( ref canvas, I18n.PromotionsFor( mod.AuthorsString ) );
             DrawCrossPromotions( ref canvas, RelevantPromotions );
             return true;
         }
